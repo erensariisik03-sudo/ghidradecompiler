@@ -1,49 +1,84 @@
-name: Ghidra Vehicle Decompile
+name: GMM Keyboard Filter Diagnostics
 
 on:
   workflow_dispatch:
+    inputs:
+      analysis_mode:
+        description: 'targeted: bounded disassembly; full: also run global auto-analysis (slower)'
+        type: choice
+        options: [targeted, full]
+        default: targeted
   push:
     paths:
       - 'input/**'
       - 'scripts/**'
+      - 'targets/**'
       - '.github/workflows/**'
 
+permissions:
+  contents: read
+
 jobs:
-  decompile:
-    runs-on: ubuntu-latest
-    timeout-minutes: 300
+  diagnose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      GHIDRA_TAG: Ghidra_11.4.2_build
+      ANALYSIS_MODE: ${{ inputs.analysis_mode || 'targeted' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
-      - name: Download Ghidra
+      - name: Check parser and input guards
+        run: python3 -m unittest discover -s tests -v
+      - name: Prepare exact diagnostic targets and metadata strings
         run: |
-          URL=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/NationalSecurityAgency/ghidra/releases/latest \
-            | jq -r '.assets[] | select(.name|endswith(".zip")) | .browser_download_url' | head -1)
-          echo "Ghidra: $URL"
-          curl -L -o ghidra.zip "$URL"
-          unzip -q ghidra.zip -d ghidra
-      - name: Analyze and extract vehicle code
+          python3 scripts/prepare_targets.py \
+            --binary input/libil2cpp.so --output output
+      - name: Download pinned official Ghidra release
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          GH=$(ls -d "$PWD"/ghidra/ghidra_* | head -1)
-          sed -i 's/^MAXMEM=.*/MAXMEM="8G"/' "$GH/support/analyzeHeadless"
-          mkdir -p output proj
-          for f in input/*.so; do
-            [ -e "$f" ] || { echo "No .so found in input/"; exit 1; }
-            n=$(basename "$f" .so)
-            mkdir -p "output/$n"
-            "$GH/support/analyzeHeadless" "$PWD/proj" "p_$n" \
-              -import "$f" \
-              -analysisTimeoutPerFile 3000 \
-              -scriptPath "$PWD/scripts" \
-              -postScript ExtractVehicle.java "$PWD/output/$n" \
-              -deleteProject > "output/$n/headless_log.txt" 2>&1 || true
-            tail -n 60 "output/$n/headless_log.txt"
-          done
-      - uses: actions/upload-artifact@v4
+          set -euo pipefail
+          gh api "repos/NationalSecurityAgency/ghidra/releases/tags/$GHIDRA_TAG" > /tmp/ghidra-release.json
+          URL=$(jq -er '[.assets[] | select(.name | test("^ghidra_.*_PUBLIC_.*\\.zip$"))][0].browser_download_url // error("Ghidra release zip missing")' /tmp/ghidra-release.json)
+          curl --fail --location --retry 3 "$URL" -o /tmp/ghidra.zip
+          unzip -q /tmp/ghidra.zip -d /tmp/ghidra
+          rm /tmp/ghidra.zip
+      - name: Extract filter and username functions
+        run: |
+          set -euo pipefail
+          GH=$(find /tmp/ghidra -mindepth 1 -maxdepth 1 -type d -name 'ghidra_*' -print -quit)
+          test -n "$GH"
+          sed -i 's/^MAXMEM=.*/MAXMEM="5G"/' "$GH/support/analyzeHeadless"
+          mkdir -p proj
+          EXTRA=(-noanalysis)
+          if [[ "$ANALYSIS_MODE" == full ]]; then
+            EXTRA=(-analysisTimeoutPerFile 1800)
+          fi
+          set +e
+          "$GH/support/analyzeHeadless" "$PWD/proj" keyboard_diagnostics \
+            -import "$PWD/input/libil2cpp.so" \
+            -max-cpu 2 "${EXTRA[@]}" \
+            -scriptPath "$PWD/scripts" \
+            -postScript ExtractKeyboard.java "$PWD/output" "$PWD/output/targets.tsv" \
+            -deleteProject > output/headless_log.txt 2>&1
+          RESULT=$?
+          set -e
+          tail -n 100 output/headless_log.txt
+          if [[ "$RESULT" -ne 0 || ! -s output/SUCCESS.json ]]; then
+            echo 'Diagnostic extraction failed or is incomplete. Download the artifact for logs.'
+            exit 1
+          fi
+      - name: Upload diagnostic output including failures
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: fs14-vehicle-analysis
+          name: gmm-keyboard-diagnostics
           path: output/
+          if-no-files-found: warn
+          retention-days: 14

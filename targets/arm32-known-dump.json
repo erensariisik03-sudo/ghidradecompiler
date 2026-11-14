@@ -1,0 +1,414 @@
+{
+  "architecture_bits": 32,
+  "source": "Previously supplied ARM32 dump.cs for GMM; exact same game build required. Binary hash unavailable at preparation time.",
+  "targets": [
+    {
+      "rva": 18743360,
+      "class": "ChatMessage",
+      "method": "cgb",
+      "signature": "public void cgb(string a) { }",
+      "dump_line": 306024,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 18746608,
+      "class": "ChatMessage",
+      "method": ".ctor",
+      "signature": "public void .ctor() { }",
+      "dump_line": 306027,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 21228964,
+      "class": "fm.<RequestAsync>d__2",
+      "method": "MoveNext",
+      "signature": "private void MoveNext() { }",
+      "dump_line": 311509,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 21231196,
+      "class": "fm.<RequestAsync>d__2",
+      "method": "SetStateMachine",
+      "signature": "private void SetStateMachine(IAsyncStateMachine stateMachine) { }",
+      "dump_line": 311513,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 21228528,
+      "class": "fm",
+      "method": "cww",
+      "signature": "private static fl cww(string a) { }",
+      "dump_line": 311526,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 21228660,
+      "class": "fm",
+      "method": "cwv",
+      "signature": "public static Task<fl> cwv(string a) { }",
+      "dump_line": 311530,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19147564,
+      "class": "ChangeUsernameManager.<SubmitChangeUsernameAsync>d__13",
+      "method": "MoveNext",
+      "signature": "private void MoveNext() { }",
+      "dump_line": 334748,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19149368,
+      "class": "ChangeUsernameManager.<SubmitChangeUsernameAsync>d__13",
+      "method": "SetStateMachine",
+      "signature": "private void SetStateMachine(IAsyncStateMachine stateMachine) { }",
+      "dump_line": 334752,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19146048,
+      "class": "ChangeUsernameManager",
+      "method": "gdj",
+      "signature": "public static void gdj(EventHandler a) { }",
+      "dump_line": 334777,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19146244,
+      "class": "ChangeUsernameManager",
+      "method": "gdk",
+      "signature": "public static void gdk(EventHandler a) { }",
+      "dump_line": 334781,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19146440,
+      "class": "ChangeUsernameManager",
+      "method": "gdl",
+      "signature": "public static void gdl(EventHandler a) { }",
+      "dump_line": 334785,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19146640,
+      "class": "ChangeUsernameManager",
+      "method": "gdm",
+      "signature": "public static void gdm(EventHandler a) { }",
+      "dump_line": 334789,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19146840,
+      "class": "ChangeUsernameManager",
+      "method": "OnEnable",
+      "signature": "private void OnEnable() { }",
+      "dump_line": 334792,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19146984,
+      "class": "ChangeUsernameManager",
+      "method": "OnDisable",
+      "signature": "private void OnDisable() { }",
+      "dump_line": 334795,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19147128,
+      "class": "ChangeUsernameManager",
+      "method": "ChangeUsernameButton",
+      "signature": "public void ChangeUsernameButton() { }",
+      "dump_line": 334798,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19147132,
+      "class": "ChangeUsernameManager",
+      "method": "gdn",
+      "signature": "private Task gdn() { }",
+      "dump_line": 334802,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19147384,
+      "class": "ChangeUsernameManager",
+      "method": "gdo",
+      "signature": "private void gdo(FirebaseUser a, string b) { }",
+      "dump_line": 334805,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19147556,
+      "class": "ChangeUsernameManager",
+      "method": ".ctor",
+      "signature": "public void .ctor() { }",
+      "dump_line": 334808,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19189296,
+      "class": "TMPInputFieldTagFilter",
+      "method": "Awake",
+      "signature": "private void Awake() { }",
+      "dump_line": 335812,
+      "group": "tag_filter"
+    },
+    {
+      "rva": 19189688,
+      "class": "TMPInputFieldTagFilter",
+      "method": "OnDestroy",
+      "signature": "private void OnDestroy() { }",
+      "dump_line": 335815,
+      "group": "tag_filter"
+    },
+    {
+      "rva": 19189896,
+      "class": "TMPInputFieldTagFilter",
+      "method": "ggy",
+      "signature": "private void ggy(string a) { }",
+      "dump_line": 335818,
+      "group": "tag_filter"
+    },
+    {
+      "rva": 19190168,
+      "class": "TMPInputFieldTagFilter",
+      "method": ".ctor",
+      "signature": "public void .ctor() { }",
+      "dump_line": 335821,
+      "group": "tag_filter"
+    },
+    {
+      "rva": 19190176,
+      "class": "TMPInputFieldTagFilter",
+      "method": ".cctor",
+      "signature": "private static void .cctor() { }",
+      "dump_line": 335824,
+      "group": "tag_filter"
+    },
+    {
+      "rva": 19190388,
+      "class": "TMPTextTagFilter",
+      "method": "Awake",
+      "signature": "private void Awake() { }",
+      "dump_line": 335838,
+      "group": "tag_filter"
+    },
+    {
+      "rva": 19181456,
+      "class": "TMPTextTagFilter",
+      "method": "ggz",
+      "signature": "public void ggz(string a) { }",
+      "dump_line": 335841,
+      "group": "tag_filter"
+    },
+    {
+      "rva": 19190600,
+      "class": "TMPTextTagFilter",
+      "method": ".ctor",
+      "signature": "public void .ctor() { }",
+      "dump_line": 335844,
+      "group": "tag_filter"
+    },
+    {
+      "rva": 19190608,
+      "class": "TMPTextTagFilter",
+      "method": ".cctor",
+      "signature": "private static void .cctor() { }",
+      "dump_line": 335847,
+      "group": "tag_filter"
+    },
+    {
+      "rva": 19727112,
+      "class": "playerNameManager",
+      "method": "OnEnable",
+      "signature": "private void OnEnable() { }",
+      "dump_line": 343334,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19727440,
+      "class": "playerNameManager",
+      "method": "OnDisable",
+      "signature": "private void OnDisable() { }",
+      "dump_line": 343337,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19727768,
+      "class": "playerNameManager",
+      "method": "hho",
+      "signature": "public void hho() { }",
+      "dump_line": 343340,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19727772,
+      "class": "playerNameManager",
+      "method": "hhp",
+      "signature": "public void hhp() { }",
+      "dump_line": 343343,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 19728060,
+      "class": "playerNameManager",
+      "method": ".ctor",
+      "signature": "public void .ctor() { }",
+      "dump_line": 343346,
+      "group": "username_or_chat"
+    },
+    {
+      "rva": 67667952,
+      "class": "TMP_InputField",
+      "method": "get_text",
+      "signature": "public string get_text() { }",
+      "dump_line": 781438,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67667960,
+      "class": "TMP_InputField",
+      "method": "set_text",
+      "signature": "public void set_text(string value) { }",
+      "dump_line": 781441,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67668368,
+      "class": "TMP_InputField",
+      "method": "SetTextWithoutNotify",
+      "signature": "public void SetTextWithoutNotify(string input) { }",
+      "dump_line": 781444,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67667968,
+      "class": "TMP_InputField",
+      "method": "SetText",
+      "signature": "private void SetText(string value, bool sendCallback = True) { }",
+      "dump_line": 781447,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67672300,
+      "class": "TMP_InputField",
+      "method": "get_onValueChanged",
+      "signature": "public TMP_InputField.OnChangeEvent get_onValueChanged() { }",
+      "dump_line": 781549,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67672500,
+      "class": "TMP_InputField",
+      "method": "get_onValidateInput",
+      "signature": "public TMP_InputField.OnValidateInput get_onValidateInput() { }",
+      "dump_line": 781561,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67672600,
+      "class": "TMP_InputField",
+      "method": "get_characterLimit",
+      "signature": "public int get_characterLimit() { }",
+      "dump_line": 781567,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67672608,
+      "class": "TMP_InputField",
+      "method": "set_characterLimit",
+      "signature": "public void set_characterLimit(int value) { }",
+      "dump_line": 781570,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67714348,
+      "class": "TMP_InputField",
+      "method": "Append",
+      "signature": "protected virtual void Append(string input) { }",
+      "dump_line": 781917,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67714516,
+      "class": "TMP_InputField",
+      "method": "Append",
+      "signature": "protected virtual void Append(char input) { }",
+      "dump_line": 781920,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67715656,
+      "class": "TMP_InputField",
+      "method": "Insert",
+      "signature": "private void Insert(char c) { }",
+      "dump_line": 781923,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67693400,
+      "class": "TMP_InputField",
+      "method": "SendOnValueChangedAndUpdateLabel",
+      "signature": "private void SendOnValueChangedAndUpdateLabel() { }",
+      "dump_line": 781929,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67669916,
+      "class": "TMP_InputField",
+      "method": "SendOnValueChanged",
+      "signature": "private void SendOnValueChanged() { }",
+      "dump_line": 781932,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67715940,
+      "class": "TMP_InputField",
+      "method": "SendOnEndEdit",
+      "signature": "protected void SendOnEndEdit() { }",
+      "dump_line": 781935,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67706260,
+      "class": "TMP_InputField",
+      "method": "SendOnSubmit",
+      "signature": "protected void SendOnSubmit() { }",
+      "dump_line": 781938,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67691160,
+      "class": "TMP_InputField",
+      "method": "Validate",
+      "signature": "protected char Validate(string text, int pos, char ch) { }",
+      "dump_line": 782025,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67682664,
+      "class": "TMP_InputField",
+      "method": "DeactivateInputField",
+      "signature": "public void DeactivateInputField(bool clearSelection = False) { }",
+      "dump_line": 782046,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67725776,
+      "class": "TMP_InputField",
+      "method": "OnDeselect",
+      "signature": "public override void OnDeselect(BaseEventData eventData) { }",
+      "dump_line": 782049,
+      "group": "tmp_input"
+    },
+    {
+      "rva": 67725824,
+      "class": "TMP_InputField",
+      "method": "OnSubmit",
+      "signature": "public virtual void OnSubmit(BaseEventData eventData) { }",
+      "dump_line": 782052,
+      "group": "tmp_input"
+    }
+  ]
+}
